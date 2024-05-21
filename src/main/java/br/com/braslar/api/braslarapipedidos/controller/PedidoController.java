@@ -19,8 +19,7 @@ public class PedidoController {
 
     @GetMapping
     public ResponseEntity<Page<DadosListagemPedido>> listAll(
-//            @PageableDefault(size = 10, sort = { "dataApontamento" }) Pageable paginacao) {
-            @PageableDefault(size = 10) Pageable paginacao) {
+            @PageableDefault(size = 10, sort = { "dataEmissao" }) Pageable paginacao) {
         var page = repository.findAll(paginacao).map(DadosListagemPedido::new);
         return ResponseEntity.ok(page);
     }
